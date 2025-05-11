@@ -118,6 +118,19 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
+vim.g.clipboard = {
+  name = 'wsl-clipboard',
+  copy = {
+    ['+'] = 'win32yank -i --crlf',
+    ['*'] = 'win32yank -i --crlf',
+  },
+  paste = {
+    ['+'] = 'win32yank -o --lf',
+    ['*'] = 'win32yank -o --lf',
+  },
+  cache_enabled = false,
+}
+
 -- Enable break indent
 vim.opt.breakindent = true
 
